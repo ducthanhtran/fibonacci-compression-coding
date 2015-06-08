@@ -5,7 +5,7 @@
 According to [Zeckendorf's Theorem](http://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) every positive integer has an unique representation as a sum of fibonacci numbers (Zeckendorf Representation) such that it does not include any two adjacent fibonacci numbers. We can use such a representation and encode it with a binary string (codeword) but instead of using bases of powers of two (binary system) we use fibonacci numbers as our bases.
 We use the fibonacci sequence 1, 2, 3, 5, 8, 13, 21, 34, 55, ...; that is we omit the first "1".
 
-Example: 73 = 55 + 13 + 5, binary codeword: 100101000
+Example: 73 = 55 + 13 + 5, binary codeword: 100101000 (leftmost leading bit is most significant bit)
 
 ### Unique Decipherability
 #### Definition
