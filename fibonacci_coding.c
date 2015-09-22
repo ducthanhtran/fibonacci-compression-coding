@@ -30,7 +30,7 @@ inline void setBit(unsigned int *num, int k)
 
 
 /*
- * Encodes a positive integer into a binary codeword with fibonacci numbers as bases
+ * Encodes a positive integer N into a binary codeword with fibonacci numbers as bases
  * Adding a 1-bit and reversing the codeword yiels a prefix code
  */
 unsigned int encode_fib(unsigned int N)
