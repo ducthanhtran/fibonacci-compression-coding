@@ -9,13 +9,13 @@ Example: 73 = 55 + 13 + 5, binary codeword: 100101000 (leftmost leading bit is m
 
 ### Unique Decipherability
 #### Definition
-A *code C* is a finite set of codewords. A *code-string M* is created by concatenating codewords from *C* where repititions of codewords are allowed. *M* is called **uniquely decipherable** (UD) if there is only one way to write *M* as the concatenation of codewords in *C*. 
+A *code C* is a finite set of codewords. A *code-string M* is created by concatenating codewords from *C* where repititions of codewords are allowed. *M* is called **uniquely decipherable** (UD) if there is only one way to write *M* as a concatenation of codewords from *C*. 
 In addition, *C* is called UD if and only if **every** message from *C* is UD.
 
 *Appendix: UD problem: Given a set C, determine if C is UD.*
 
 #### How to achieve unique decipherability?
-Because consecutive ones do not appear in our codewords, we can append a single 1-bit to our codewords in order to identify boundaries between codewords, i.e. it acts like a seperation line or a "comma". Therefore we are able to differentiate codewords in (long) concatenations/strings of codewords, that is, there is only one way to decode such strings.
+Because consecutive ones do not appear in our codewords (Zeckendorf), we can append a single 1-bit to our codewords in order to identify boundaries between codewords, i.e. it acts like a seperation line or a "comma". Therefore we are able to differentiate codewords in (long) concatenations/strings of codewords.
 
 Example: 10011 1011 stands for 6 and 4
 
