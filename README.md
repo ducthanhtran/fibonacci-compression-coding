@@ -17,13 +17,13 @@ In addition, *C* is called UD if and only if **every** message from *C* is UD.
 #### How to achieve unique decipherability?
 Because consecutive ones do not appear in our codewords (Zeckendorf), we can append a single 1-bit to our codewords in order to identify boundaries between codewords, i.e. it acts like a seperation line or a "comma". Therefore we are able to differentiate codewords in (long) concatenations/strings of codewords.
 
-Example: 10011 1011 stands for 6 and 4
+Example: **1**1001 **1**101 stands for 6=5+1 and 4=3+1
 
 ### Prefix Code
-Complications may occur during the decoding phase of code-strings. This problem is shown here by using repititions of the codeword 11 which is the only codeword having no zeros.
-Suppose we have an encoded string 11011111110. This could be parsed into 110 **|** 11 **|** 11 **|** 11 **|** 10. This however is not possible as 10 is not a codeword; therefore we need to re-check the first codewords again and parse it to 1101 **|** 11 **|** 11 **|** 110.
+Complications may occur during the decoding phase of code-strings. This problem is shown here by using repetitions of the codeword 11 which is the only (valid) codeword having no zeros.
+Suppose we have an encoded string 11011111110. This could be parsed into 110 **|** 11 **|** 11 **|** 11 **|** 10. This however is not a valid breakdown as 10 is not a codeword; therefore we need to re-check the first codewords again and finally parse it to 1101 **|** 11 **|** 11 **|** 110.
 
-In order to avoid such problems we simply reverse all codewords which forms a **prefix code**, i.e. no codeword is a prefix of any other codeword.
+In order to avoid such problems we simply reverse all codewords which forms a **prefix code**, i.e. no codeword is a prefix of any other codeword. Taking the example above we get the encoded string: 10111111011. Parsing this string results into (two consecutive ones mark the end of a codeword): 1011 **|** 11 **|** 11 **|** 011
 
 // TODO: how to encode/decode/(efficiency)??
 
