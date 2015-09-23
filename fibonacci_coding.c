@@ -25,7 +25,7 @@ unsigned int fibonacciNumber(int n)
  */
 inline void setBit(unsigned int *num, int k)
 {
-    *num |= 1 << k;
+    *num |= 1 << k-1;
 }
 
 
@@ -59,5 +59,5 @@ unsigned int encode_fib(unsigned int N)
     }
     
     // TODO: Zeckendorf representation finished; add 1-bit (UD-property) and reverse bit-representation to achieve prefix-code
-    return enc;
+    return -1;
 }
