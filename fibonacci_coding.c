@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 typedef unsigned long long ull;
@@ -19,39 +20,53 @@ static inline void setBit(ull *num, const int k) {
     *num |= (1 << k);
 }
 
-// Reverses bit representation from bitStr
-// TODO: recheck
-static inline ull computeRevBitStr(ull bitStr) {
-    unsigned int revBitStr = 0;
-    while(bitStr > 0) {
-        // get least significant bit
-        int lsb = bitStr & 1;
+// Reverses bit representation of number
+// TODO: check
+static ull reverse(const ull inputNumber) {
+    ull revnumber = 0;
+    ull number = inputNumber;
 
-        // shift bitStr, and get next least significant bit in next step.
-        // Exploit property, that there are no consecutive ones.
+    while(number > 0) {
+        // get least significant bit
+        const ull lsb = number & 1;
+
         if(lsb == 0) {
-            bitStr = bitStr >> 1;
-            revBitStr = revBitStr << 1;
+            // shift number, and get next least significant bit in next step.
+            number = number >> 1;
+            revnumber = revnumber << 1;
+            printf("shift 0: %llu | %llu\n", number, revnumber);
         }
         else {
-            bitStr = bitStr >> 2;
-            revBitStr = revBitStr << 2;
+            // exploit property, that there are no consecutive ones.
+            number = number >> 2;
+            revnumber = revnumber << 2;
+            printf("shift 1: %llu | %llu\n", number, revnumber);
         }
 
-        // update reverse bit string
-        revBitStr |= lsb;
+        // update reverse number
+        revnumber |= lsb;
+        printf("update %llu\n", revnumber);
     }
-    return revBitStr;
+    return revnumber;
+}
+
+// Finds smallest index i, such that i-th Fibonacci number
+// is greater or equal to N
+static int smallestFibonacciIndex(const ull N) {
+    int i = 0;
+    while(fibonacciNumber(i) < N) {
+        ++i;
+    }
+    return i;
 }
 
 // Computes the binary Zeckendorf representation
 // of a positive integer N.
 ull zeckendorf(const ull N) {
-    // find smallest fibonacci number that is greater or equal to N
-    int i = 0;
-    while(fibonacciNumber(++i) <= N);
+    const int index = smallestFibonacciIndex(N);
 
     // TODO
+
     return 0;
 }
 
@@ -93,5 +108,12 @@ ull encode_fib(const ull N) {
 */
 
 int main(int argc, char* argv[]) {
+    if(argc == 2) {
+        char* end;
+        const ull input = strtoull(argv[1], &end, 10);
+
+        ull out = reverse(input);
+        printf("%llu\n", out);
+    }
     return 0;
 }
