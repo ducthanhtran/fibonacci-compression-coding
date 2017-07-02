@@ -62,7 +62,7 @@ static int smallestFibonacciIndex(const ull N) {
 
 // Computes the binary Zeckendorf representation
 // of a positive integer N.
-ull zeckendorf(const ull N) {
+static ull zeckendorf(const ull N) {
     const int index = smallestFibonacciIndex(N);
 
     // TODO
